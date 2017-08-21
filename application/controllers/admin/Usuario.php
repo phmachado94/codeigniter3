@@ -91,7 +91,7 @@ class Usuario extends CI_Controller {
         $this->load->view('backend/template/html-footer');
     }
 
-    public function salvar_alteracoes() {
+    public function salvar_alteracoes($idCript) {
         if (!$this->session->userdata('logado')) {
             redirect(base_url('admin/login'));
         }
@@ -106,7 +106,7 @@ class Usuario extends CI_Controller {
         $this->form_validation->set_rules('txtConfirmarSenha', 'Confirmar Senha', 'required|min_length[3]|matches[txtSenha]');
 
         if (!$this->form_validation->run()) {
-            $this->index();
+            $this->alterar($idCript);
         } else {
             $id = $this->input->post('txtId');
             $nome = $this->input->post('txtNome');

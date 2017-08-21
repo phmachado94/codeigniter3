@@ -76,14 +76,14 @@ class Publicacao extends CI_Controller {
         $this->load->view('backend/template/html-footer');
     }
 
-    public function salvar_alteracoes() {
+    public function salvar_alteracoes($idCript) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('txtTitulo', 'Título', 'required|min_length[3]');
         $this->form_validation->set_rules('txtSubTitulo', 'Sub Título', 'required|min_length[3]');
         $this->form_validation->set_rules('txtConteudo', 'Conteúdo', 'required|min_length[20]');
 
         if (!$this->form_validation->run()) {
-            $this->alterar();
+            $this->alterar($idCript);
         } else {
             $categoria = $this->input->post('selectCat');
             $titulo = $this->input->post('txtTitulo');

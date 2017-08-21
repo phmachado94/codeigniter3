@@ -17,8 +17,8 @@
                         <div class="col-lg-12">
                             <?php
                             echo validation_errors('<div class="alert alert-danger">', '</div>');
-                            echo form_open('admin/publicacao/salvar_alteracoes');
                             foreach ($publicacoes as $publicacao) {
+                                echo form_open('admin/publicacao/salvar_alteracoes/' . md5($publicacao->id));
                                 ?>
 
                                 <div class="form-group">
@@ -27,7 +27,7 @@
 
                                         <?php foreach ($categorias as $categoria) {
                                             ?>
-                                        <option value="<?= $categoria->id; ?>" <?php if ($categoria->id == $publicacao->categoria) echo "selected"; ?>><?= $categoria->titulo; ?></option>
+                                            <option value="<?= $categoria->id; ?>" <?php if ($categoria->id == $publicacao->categoria) echo "selected"; ?>><?= $categoria->titulo; ?></option>
                                             <?php
                                         }
                                         ?>
@@ -59,9 +59,9 @@
                                         Data</label>
                                     <input type="datetime-local" name="txtData" class="form-control" placeholder="Data" value="<?= strftime('%Y-%m-%dT%H:%M:%S', strtotime($publicacao->data)); ?>"/>
                                 </div>
-                            
-                            <input type="hidden" name="txtId" value="<?= $publicacao->id; ?>"/>
-                            
+
+                                <input type="hidden" name="txtId" value="<?= $publicacao->id; ?>"/>
+
 
 
                                 <button type="submit" class="btn btn-default">Alterar</button>
@@ -70,7 +70,7 @@
                                 <?php
                                 echo form_close();
                                 ?>
-                                
+
                             </div>
 
                         </div>
@@ -87,13 +87,13 @@
                     <div class="panel-heading">
                         <?= 'Imagem de Destaque do ' . $subtitulo; ?>
                     </div>
-                    
+
                     <style type="text/css">
                         img{
                             width: 400px;
                         }                        
                     </style>
-                    
+
                     <div class="panel-body">
                         <div class="row" style="padding-bottom: 10px;">
                             <div class="col-lg-8 col-lg-offset-1">

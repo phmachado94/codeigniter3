@@ -17,8 +17,8 @@
                         <div class="col-lg-12">
                             <?php
                             echo validation_errors('<div class="alert alert-danger">', '</div>');
-                            echo form_open('admin/usuario/salvar_alteracoes');
                             foreach ($usuarios as $usuario) {
+                                echo form_open('admin/usuario/salvar_alteracoes/' . md5($usuario->id));
                                 ?>
 
                                 <div class="form-group">
@@ -93,7 +93,7 @@
                                     echo img('assets/frontend/img/sem-imagem.jpg');
                                 }
                                 ?>
-                                
+
                             </div>
                         </div>
 

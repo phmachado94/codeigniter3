@@ -17,8 +17,8 @@
                         <div class="col-lg-12">
                             <?php
                             echo validation_errors('<div class="alert alert-danger">', '</div>');
-                            echo form_open('admin/categoria/salvar_alteracoes');
                             foreach ($categorias as $categoria) {
+                                echo form_open('admin/categoria/salvar_alteracoes/' . md5($categoria->id));
                                 ?>
 
                                 <div class="form-group">
@@ -28,7 +28,7 @@
 
                                 </div>
 
-                            <input type="hidden" name="txtId" value="<?= $categoria->id; ?>">
+                                <input type="hidden" name="txtId" value="<?= $categoria->id; ?>">
 
                                 <button type="submit" class="btn btn-default">Atualizar</button>
 
