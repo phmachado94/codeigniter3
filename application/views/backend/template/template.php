@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Painel Administrativo</a>
+            <a class="navbar-brand" href="<?= base_url('admin') ?>">Painel Administrativo</a>
         </div>
         <!-- /.navbar-top-links -->
 
